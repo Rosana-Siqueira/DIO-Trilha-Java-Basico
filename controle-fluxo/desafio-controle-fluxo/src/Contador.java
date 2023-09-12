@@ -19,14 +19,21 @@ public class Contador {
 		
 	}
 	static void contar(int parametroUm, int parametroDois ) throws ParametrosInvalidosException {
-        int contagem = parametroDois - parametroUm;
-    
-        for(int indice = 0; indice < contagem; indice++) {
-
-            System.out.println("Imprimindo o número " + (indice) + contagem );
+        if (parametroUm >= parametroDois) {
+            throw new ParametrosInvalidosException();
+        }
+        
+        for(int indice = 1; parametroUm + indice <= parametroDois; indice++) {
+            System.out.println("Imprimindo o número " + (parametroUm + indice));
         }    
     }
-
-
 }
+
+class ParametrosInvalidosException extends Exception {
+    
+}   
+    
+
+
+
     
